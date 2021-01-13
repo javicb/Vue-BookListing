@@ -8,10 +8,11 @@
         :book="book"
       ></book-item>
     </ul>
+    <book-form @addBook="appendBook"></book-form>
   </div>
 </template>
-
 <script>
+import BookForm from "./BookForm";
 import BookItem from "./BookItem";
 
 export default {
@@ -28,6 +29,12 @@ export default {
   },
   components: {
     BookItem,
+    BookForm,
+  },
+  methods: {
+    appendBook(bookTitle, bookAuthor) {
+      this.books.push({ title: bookTitle, author: bookAuthor });
+    },
   },
 };
 </script>
